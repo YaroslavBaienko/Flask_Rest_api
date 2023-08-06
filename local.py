@@ -12,5 +12,5 @@ res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "T
 # res_courses = requests.get("http://127.0.0.1:3000/api/courses")
 res_courses = requests.delete("http://127.0.0.1:3000/api/courses/by_name/Dj")
 # res = requests.delete("http://127.0.0.1:3000/api/courses/delete_all")
-print(res_courses.json())
+# print(res_courses.json())
 print(requests.get("http://127.0.0.1:3000/api/courses").json())
