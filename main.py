@@ -33,14 +33,18 @@ parser.add_argument("videos", type=int, required=True, help="Number of videos is
 
 
 class CourseResource(Resource):
-    def get(self, course_id=None):
-        if course_id is None:
+    def get(self, course_id=None, course_name=None):
+        if course_id:
+            course = Course.query.get(course_id)
+        elif course_name:
+            course = Course.query.filter_by(name=course_name).first()
+        else:
             return jsonify([course.serialize for course in Course.query.all()])
-        course = Course.query.get(course_id)
+
         if course:
             return jsonify(course.serialize)
         else:
-            abort(404, message=f"Course with ID {course_id} not found")
+            abort(404, message=f"Course not found")
 
     def delete(self, course_id=None, course_name=None):
         if course_id:
