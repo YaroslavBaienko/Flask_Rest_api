@@ -1,24 +1,32 @@
 import requests
+import string
+import random
+import config
 
-# res = requests.get("http://127.0.0.1:3000/api/main")
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Assembler", "videos": 10240})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Java", "videos": 23400})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Python", "videos": 14400})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "C#", "videos": 45})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "C++", "videos": 1345})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "C", "videos": 10000})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "JavaScript", "videos": 10345})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "TypeScript", "videos": 1786})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "F", "videos": 10240})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "D", "videos": 23400})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Flask", "videos": 14400})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Django", "videos": 45})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Csdfsf", "videos": 1345})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Csdf", "videos": 10000})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Jacript", "videos": 10345})
-res_courses = requests.put("http://127.0.0.1:3000/api/courses", json={"name": "Fortran", "videos": 1786})
-# res_courses = requests.get("http://127.0.0.1:3000/api/courses")
-res_courses = requests.delete("http://127.0.0.1:3000/api/courses/by_name/Dj")
-# res = requests.delete("http://127.0.0.1:3000/api/courses/delete_all")
-# print(res_courses.json())
-print(requests.get("http://127.0.0.1:3000/api/courses").json())
+# Ваш полученный токен
+token = config.client_api_token
+
+headers = {
+    "Authorization": f"Bearer {token}",
+    "User-Agent": "Mozilla/5.0"
+}
+
+
+def generate_data():
+    nums = random.randint(2, 12)
+    phrase = ""
+    for i in range(nums):
+        letter = random.choice(string.ascii_letters)
+        phrase = phrase + letter
+    return phrase, random.randint(1, 10000)
+
+
+for i in range(100):
+    response = requests.post("http://127.0.0.1:3000/api/courses", headers=headers,
+                             json={"name": generate_data()[0], "videos": generate_data()[1]})
+
+    # Обработка ответа
+    if response.status_code == 201:
+        print(response.json())
+    else:
+        print(f"Error! Status code: {response.status_code}. Response: {response.text}")
