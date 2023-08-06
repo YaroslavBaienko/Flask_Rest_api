@@ -1,6 +1,7 @@
 # Flask Course Management API
 
-This repository contains a simple Flask application that provides a RESTful API for managing courses. The API allows users to perform CRUD operations on courses, including adding, updating, deleting, and retrieving course details.
+This repository contains a simple Flask application that provides a RESTful API for managing courses. The API allows
+users to perform CRUD operations on courses, including adding, updating, deleting, and retrieving course details.
 
 ## Features
 
@@ -9,10 +10,10 @@ This repository contains a simple Flask application that provides a RESTful API 
 - **Flask-SQLAlchemy**: ORM for database operations.
 - **Data Model**: The application defines a `Course` model with attributes: `id`, `name`, and `videos`.
 - **Endpoints**:
-  - Retrieve all courses or a specific course by ID or name.
-  - Add a new course.
-  - Update an existing course.
-  - Delete a specific course or all courses.
+    - Retrieve all courses or a specific course by ID or name.
+    - Add a new course.
+    - Update an existing course.
+    - Delete a specific course or all courses.
 
 ## Installation
 
@@ -23,12 +24,12 @@ This repository contains a simple Flask application that provides a RESTful API 
 
 2. Navigate to the project directory:
    ```bash
-   cd <project_directory>
+   cd Flask_Rest_api
    ```
 
 3. Install the required packages:
    ```bash
-   pip install flask flask_restful flask_sqlalchemy
+   pip install -r requirements.txt
    ```
 
 ## Usage
@@ -42,14 +43,14 @@ This repository contains a simple Flask application that provides a RESTful API 
 
 3. Use the following endpoints for API operations:
 
-   - **GET** `/api/courses`: Retrieve all courses.
-   - **GET** `/api/courses/<int:course_id>`: Retrieve a course by its ID.
-   - **GET** `/api/courses/by_name/<string:course_name>`: Retrieve a course by its name.
-   - **POST** `/api/courses`: Add a new course.
-   - **PUT** `/api/courses/<int:course_id>`: Update an existing course.
-   - **DELETE** `/api/courses/<int:course_id>`: Delete a course by its ID.
-   - **DELETE** `/api/courses/by_name/<string:course_name>`: Delete a course by its name.
-   - **DELETE** `/api/courses/delete_all`: Delete all courses.
+    - **GET** `/api/courses`: Retrieve all courses.
+    - **GET** `/api/courses/<int:course_id>`: Retrieve a course by its ID.
+    - **GET** `/api/courses/by_name/<string:course_name>`: Retrieve a course by its name.
+    - **POST** `/api/courses`: Add a new course.
+    - **PUT** `/api/courses/<int:course_id>`: Update an existing course.
+    - **DELETE** `/api/courses/<int:course_id>`: Delete a course by its ID.
+    - **DELETE** `/api/courses/by_name/<string:course_name>`: Delete a course by its name.
+    - **DELETE** `/api/courses/delete_all`: Delete all courses.
 
 ## Contributing
 
@@ -61,7 +62,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 # Flask Course Management API with GitHub OAuth
 
-This repository contains a Flask application that provides a RESTful API for managing courses with GitHub OAuth authentication. The API allows users to perform CRUD operations on courses and users, including adding, updating, deleting, and retrieving course details.
+This repository contains a Flask application that provides a RESTful API for managing courses with GitHub OAuth
+authentication. The API allows users to perform CRUD operations on courses and users, including adding, updating,
+deleting, and retrieving course details.
 
 ## Features
 
@@ -72,11 +75,11 @@ This repository contains a Flask application that provides a RESTful API for man
 - **Data Models**: The application defines `Course` and `User` models.
 - **Token Authentication**: Token-based authentication for API endpoints.
 - **Endpoints**:
-  - Retrieve all courses or a specific course by ID or name.
-  - Add a new course.
-  - Update an existing course.
-  - Delete a specific course or all courses.
-  - GitHub OAuth login and logout.
+    - Retrieve all courses or a specific course by ID or name.
+    - Add a new course.
+    - Update an existing course.
+    - Delete a specific course or all courses.
+    - GitHub OAuth login and logout.
 
 ## Installation
 
@@ -108,18 +111,18 @@ This repository contains a Flask application that provides a RESTful API for man
 
 3. Use the following endpoints for API operations:
 
-   - **GET** `/api/courses`: Retrieve all courses.
-   - **GET** `/api/courses/<int:course_id>`: Retrieve a course by its ID.
-   - **GET** `/api/courses/by_name/<string:course_name>`: Retrieve a course by its name.
-   - **POST** `/api/courses`: Add a new course.
-   - **PUT** `/api/courses/<int:course_id>`: Update an existing course.
-   - **DELETE** `/api/courses/<int:course_id>`: Delete a course by its ID.
-   - **DELETE** `/api/courses/by_name/<string:course_name>`: Delete a course by its name.
-   - **DELETE** `/api/courses/delete_all`: Delete all courses.
-   - **GET** `/login`: GitHub OAuth login.
-   - **GET** `/logout`: Logout and remove the GitHub token from the session.
-   - **GET** `/login/authorized`: Callback URL for GitHub OAuth.
-   - **GET** `/get_token`: Retrieve the GitHub OAuth token.
+    - **GET** `/api/courses`: Retrieve all courses.
+    - **GET** `/api/courses/<int:course_id>`: Retrieve a course by its ID.
+    - **GET** `/api/courses/by_name/<string:course_name>`: Retrieve a course by its name.
+    - **POST** `/api/courses`: Add a new course.
+    - **PUT** `/api/courses/<int:course_id>`: Update an existing course.
+    - **DELETE** `/api/courses/<int:course_id>`: Delete a course by its ID.
+    - **DELETE** `/api/courses/by_name/<string:course_name>`: Delete a course by its name.
+    - **DELETE** `/api/courses/delete_all`: Delete all courses.
+    - **GET** `/login`: GitHub OAuth login.
+    - **GET** `/logout`: Logout and remove the GitHub token from the session.
+    - **GET** `/login/authorized`: Callback URL for GitHub OAuth.
+    - **GET** `/get_token`: Retrieve the GitHub OAuth token.
 
 ## Contributing
 
